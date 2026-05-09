@@ -81,8 +81,6 @@ function App() {
       </main>
 
       <footer className="footer" ref={footerRef}>
-        <a href="mailto:hello@beebea.planet">hello@beebea.planet</a>
-        <span className="footer-dot" />
         <span className="footer-company">BEEBEA INC.</span>
       </footer>
     </>

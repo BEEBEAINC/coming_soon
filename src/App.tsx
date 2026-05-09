@@ -48,7 +48,7 @@ function App() {
       <main className="content">
         <div className="logo-wrap" ref={logoRef}>
           <img
-            src="/src/assets/beebea_logo.svg"
+            src="/beebea_logo.svg"
             alt="BEEBEA"
             className="logo-svg"
           />

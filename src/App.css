@@ -180,7 +180,7 @@ html, body, #root {
 /* ─── Contact / Footer ─── */
 .footer {
   position: fixed;
-  bottom: 2rem;
+  bottom: 8rem;
   left: 0;
   right: 0;
   text-align: center;
@@ -194,6 +194,7 @@ html, body, #root {
   letter-spacing: 0.1em;
   transition: color 0.3s ease;
   position: relative;
+  text-transform: uppercase;
 }
 
 .footer a::after {
@@ -210,7 +211,7 @@ html, body, #root {
 }
 
 .footer a:hover {
-  color: var(--fg-primary);
+  color: var(--accent-glow);
 }
 
 .footer a:hover::after {

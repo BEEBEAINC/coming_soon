@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import FaultyTerminal from './components/FaultyTerminal'
-import HeroImage from './components/HeroImage'
 import FuzzyText from './components/FuzzyText'
 import GrainOverlay from './components/GrainOverlay'
 import Vignette from './components/Vignette'
@@ -55,9 +54,9 @@ function App() {
           <span className="logo-text">beebea.planet</span>
         </div>
 
-        <div className="hero-wrap" ref={heroRef}>
-          <HeroImage />
-        </div>
+        {/*<div className="hero-wrap" ref={heroRef}>*/}
+        {/*  <HeroImage />*/}
+        {/*</div>*/}
 
         <div className="fuzzy-wrap" ref={fuzzyRef}>
           <FuzzyText className="tagline">coming.soon</FuzzyText>
@@ -81,6 +80,8 @@ function App() {
       </main>
 
       <footer className="footer" ref={footerRef}>
+        <a href="https://discord.gg/SWdcMXfCHR" target="_blank" rel="noopener noreferrer">Join our Discord Server</a>
+          <span className="footer-dot">|</span>
         <span className="footer-company">BEEBEA INC.</span>
       </footer>
     </>

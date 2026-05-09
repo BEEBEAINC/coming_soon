@@ -1,0 +1,281 @@
+/* ─── CSS Reset & Base ─── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-deep: #f7f6f3;
+  --bg-mid: #edece8;
+  --fg-primary: #0010a8;
+  --fg-muted: #6b6b7b;
+  --accent-indigo: #3b509d;
+  --accent-bright: #4f46e5;
+  --accent-glow: #6366f1;
+  --accent-warm: #8b5cf6;
+
+  --font-audiowide: 'Audiowide', sans-serif;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-deep);
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--fg-primary);
+}
+
+/* ─── Terminal Background ─── */
+.terminal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+/* ─── Main Content Overlay ─── */
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  pointer-events: none;
+  gap: 0;
+}
+
+.content > * {
+  pointer-events: auto;
+}
+
+/* ─── Logo ─── */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 0 12px rgba(79, 70, 229, 0.3));
+}
+
+.logo-text {
+  font-family: 'Audiowide', cursive;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  letter-spacing: 0.08em;
+  color: white;
+}
+
+/* ─── Hero Image ─── */
+.hero-wrap {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle at center,
+    var(--accent-glow) 0%,
+    var(--accent-bright) 30%,
+    var(--accent-warm) 60%,
+    transparent 80%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 16, 168, 0.12),
+    0 2px 8px rgba(0, 16, 168, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Fuzzy Text Canvas ─── */
+.fuzzy-wrap {
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Tagline ─── */
+.tagline {
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 300;
+  color: white;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* ─── Shiny Text ─── */
+.shiny-text {
+  display: inline-block;
+  font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  background-image: linear-gradient(
+    120deg,
+    var(--fg-muted) 0%,
+    var(--fg-muted) 35%,
+    var(--fg-primary) 50%,
+    var(--fg-muted) 65%,
+    var(--fg-muted) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shinySweep 3s linear infinite;
+}
+
+@keyframes shinySweep {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* ─── Contact / Footer ─── */
+.footer {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.footer a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: var(--accent-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--fg-primary);
+}
+
+.footer a:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+  margin: 0 1rem;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
+.footer-company {
+  color: white;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  .logo-wrap {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .logo-svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-image-container {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .fuzzy-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    margin-bottom: 2rem;
+  }
+
+  .footer {
+    bottom: 1.5rem;
+  }
+}

@@ -38,7 +38,7 @@ export default function HeroImage() {
       <div ref={glowRef} className="hero-image-glow" />
       <div ref={imgRef} className="hero-image-wrapper">
         <img
-          src="/src/assets/beebea_produt_image.webp"
+          src="/beebea_produt_image.webp"
           alt="BEEBEA Product"
           className="hero-image"
         />
